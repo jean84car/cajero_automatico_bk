@@ -20,6 +20,12 @@ import com.acsendo.cajeroautomaticows.app.dto.RetirarBilletesRespuestaDTO;
 import com.acsendo.cajeroautomaticows.app.dto.RetirarBilletesSolicitudDTO;
 import com.acsendo.cajeroautomaticows.app.model.service.IDenominacionService;
 
+/*
+ * CajeroAutomaticoWS
+ * 
+ * Capacidades del servicio de cajero que permites registar y retirar billetes.
+ * 
+ * */
 
 @RestController
 @RequestMapping(
@@ -32,6 +38,15 @@ public class CajeroAutomaticoWS {
 	@Autowired
 	private IDenominacionService denominacionService;
 	
+	
+	/*
+	 * Capacidad registrarBilletes
+	 * 
+	 * Permite el registrar denominaciones
+	 * 
+	 * @Valid permite realizar validacioes sobre los campos de la solicitud
+	 * 
+	 * */
 	@PostMapping(path = "billetes")
 	public ResponseEntity<RegistrarDenominacionRespuestaDTO> registrarBilletes(@Valid @RequestBody DenominacionDTO solicitud, BindingResult result){
 		
@@ -61,6 +76,14 @@ public class CajeroAutomaticoWS {
 		
 	}
 	
+	
+	/*
+	 * Capacidad consultarBilletes
+	 * 
+	 * Permite el consultar las denominaciones
+	 * 
+	 * 
+	 * */
 	@GetMapping(path = "billetes")
 	public ResponseEntity<RegistrarDenominacionRespuestaDTO> consultarBilletes(){
 		
@@ -77,6 +100,15 @@ public class CajeroAutomaticoWS {
 		
 	}
 	
+	
+	/*
+	 * Capacidad retirarBilletes
+	 * 
+	 * Permite el retirar billetes por parte de los clientes
+	 * 
+	 * @Valid permite realizar validacioes sobre los campos de la solicitud
+	 * 
+	 * */
 	@PutMapping(path = "billetes")
 	public ResponseEntity<?> retirarBilletes(@Valid @RequestBody RetirarBilletesSolicitudDTO solicitud, BindingResult result){
 		try {
